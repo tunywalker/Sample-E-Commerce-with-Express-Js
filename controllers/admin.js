@@ -7,7 +7,10 @@ const products = Products.getAll();
         {
             title: 'Admin Products',
             products: products,
-            path: '/admin/products'
+            path: '/admin/products',
+            action: req.query.action,
+            updatedId: req.query.updated
+
         });
 };
 module.exports.getAddProduct = (req, res, next) => {
@@ -36,7 +39,7 @@ module.exports.postEditProduct = (req, res, next) => {
     product.imageUrl=req.body.imageUrl;
     Product.Update(product);
 
-    res.redirect('/admin/products');
+    res.redirect('/admin/products?action=edit&updated='+req.body.id);
 }
 
 module.exports.postAddProduct = (req, res, next) => {
