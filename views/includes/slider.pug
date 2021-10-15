@@ -1,0 +1,22 @@
+#carouselExampleIndicators.carousel.slide(data-ride='carousel')
+        ul.carousel-indicators
+          li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+          li(data-target='#carouselExampleIndicators' data-slide-to='1')
+          li(data-target='#carouselExampleIndicators' data-slide-to='2')
+        .carousel-inner
+          .carousel-item.active
+            img.d-block.w-100(src='/img/slide3.jpg' alt='First slide')
+            .carousel-caption.d-none.d-md-block
+              | &lt;  
+              h5 My Caption Title (1st Image)
+              p The whole caption will only show up if the screen is at least medium size.
+          .carousel-item
+            img.d-block.w-100(src='/img/slide1.jpg' alt='Second slide')
+          .carousel-item
+            img.d-block.w-100(src='/img/slide2.jpg' alt='Third slide')
+        a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
+          span.carousel-control-prev-icon(aria-hidden='true')
+          span.sr-only Previous
+        a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
+          span.carousel-control-next-icon(aria-hidden='true')
+          span.sr-only Next

@@ -1,0 +1,25 @@
+extends ../layouts/main-layout.pug
+block content    
+    form(action="/admin/edit-product" method="POST")
+
+        input#id(type="hidden" name="id" value=`${product.id}` ) 
+
+        .form-group-row
+            label(for="productName").col-sm-2.col-form-label Product Name
+            .col-sm-10
+                input(type="text"  name="name" value=`${product.name}`).form-control#name
+        .form-group-row
+            label(for="price").col-sm-2.col-form-label Price
+            .col-sm-10
+                input(type="text"  name="price" value=`${product.price}`).form-control#price
+        .form-group-row
+            label(for="imageUrl").col-sm-2.col-form-label Image
+            .col-sm-10
+                input(type="text"  name="imageUrl" value=`${product.imageUrl}`).form-control#imageUrl
+        .form-group-row
+            label(for="Description").col-sm-2.col-form-label Description
+            .col-sm-10
+                textarea#description(cols="50", rows="10" type="text"  name="description" ) #{product.description}                   
+        .form-group-row                           
+            .col-sm-10.my-1
+                 input(type="submit" value="Save Product").btn.btn-primary                     
