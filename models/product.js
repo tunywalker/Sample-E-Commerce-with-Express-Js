@@ -38,6 +38,13 @@ products[index].imageUrl=product.imageUrl;
 
 }
 
+static DeleteById(id){
+
+const index=products.findIndex(i=>i.id=== id);
+products.splice(index,1);
+
+}
+
 
 }
 

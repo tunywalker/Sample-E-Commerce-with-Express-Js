@@ -1,21 +1,24 @@
 const admin = require('../routes/admin');
-const Products =require('../models/product');
+const Products = require('../models/product');
 const Product = require('../models/product');
+const Category =require('../models/category');
 
 
 module.exports.getIndex = (req, res, next) => {
     const products = Products.getAll();
-  res.render('shop/index',
+    const categories= Category.getAll();
+    res.render('shop/index',
         {
             title: 'Shopping',
             products: products,
-            path: '/'
+            path: '/',
+            categories: categories
         });
 };
 module.exports.getProducts = (req, res, next) => {
     const products = Products.getAll();
-    
-  res.render('shop/products',
+
+    res.render('shop/products',
         {
             title: 'Products',
             products: products,
@@ -25,9 +28,9 @@ module.exports.getProducts = (req, res, next) => {
 module.exports.getProduct = (req, res, next) => {
     const productId = req.params.productId;
     const product = Product.getById(productId);
-  res.render('shop/product-detail',
+    res.render('shop/product-detail',
         {
-            title: 'Product - '+product.name,
+            title: 'Product - ' + product.name,
             product: product,
             path: '/products'
         });
@@ -36,28 +39,28 @@ module.exports.getProduct = (req, res, next) => {
 module.exports.getProductDetails = (req, res, next) => {
     const products = Products.getAll();
     console.log(req.params.uid);
-  res.render('shop/details',
+    res.render('shop/details',
         {
             title: 'Details',
-            
+
             path: '/details'
         });
 };
 module.exports.getCart = (req, res, next) => {
     const products = Products.getAll();
-  res.render('shop/cart',
+    res.render('shop/cart',
         {
             title: 'Cart',
-            
+
             path: '/cart'
         });
 };
 module.exports.getOrders = (req, res, next) => {
     const products = Products.getAll();
-  res.render('shop/orders',
+    res.render('shop/orders',
         {
             title: 'Orders',
-            
+
             path: '/orders'
         });
 };

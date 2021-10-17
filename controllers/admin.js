@@ -9,7 +9,8 @@ const products = Products.getAll();
             products: products,
             path: '/admin/products',
             action: req.query.action,
-            updatedId: req.query.updated
+            updatedId: req.query.updated,
+            deletedId: req.query.deletedId
 
         });
 };
@@ -52,5 +53,12 @@ module.exports.postAddProduct = (req, res, next) => {
     product.saveProduct();    
 
     res.redirect('/');
+
+}
+
+module.exports.postDeleteProduct=(req,res,next)=>{
+Product.DeleteById(req.body.productId)
+res.redirect('/admin/products?action=delete&deletedId='+req.body.productId)
+
 
 }

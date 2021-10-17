@@ -1,4 +1,8 @@
 .list-group
-                    a(href="").list-group-item Category 1
-                    a(href="").list-group-item Category 2
-                    a(href="").list-group-item Category 3
+        if categories.length > 0
+            each category in categories
+                a(href=`/categories/${category.name}`).list-group-item #{category.name}
+
+                    
+        else  
+                h1 No Product                         

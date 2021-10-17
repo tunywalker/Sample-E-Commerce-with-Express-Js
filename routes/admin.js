@@ -14,6 +14,9 @@ router.post('/edit-product', adminController.postEditProduct);
 //sonradan
 
 router.get('/products', adminController.getProducts);
+router.get('/products/:productId', adminController.getProducts);
+
+router.post('/delete-product',adminController.postDeleteProduct)
 
 
 module.exports = router;
